@@ -11,6 +11,15 @@ android {
 
     boolean doSign = keystorePropertiesFile.exists()
 
+    flavorDimensions += "product"
+
+    productFlavors {
+        create("dev") {
+            dimension = "product"
+            applicationIdSuffix = ".dev"
+        }
+    }
+
     if (doSign) {
         def keystoreProperties = new Properties()
 
